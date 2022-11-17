@@ -1,0 +1,11 @@
+server:
+  port: 8282
+
+info:
+  appName: product-catalog
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

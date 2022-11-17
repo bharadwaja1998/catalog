@@ -1,11 +1,12 @@
 pipeline {
     agent any
+    tools {
+	jdk 'jdk8'
+    }
     stages {
     	stage('Build') 	{
 			steps {
         		sh '''
-				export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.342.b07-1.amzn2.0.1.x86_64
-				export PATH=$PATH:$JAVA_HOME/bin
 				java -version
 				./gradlew -b build.gradle clean build
 			'''

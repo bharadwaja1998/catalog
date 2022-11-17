@@ -3,7 +3,12 @@ pipeline {
     stages {
     	stage('Build') 	{
 			steps {
-        		sh './gradlew -b build.gradle clean build'
+        		sh '''
+				export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.342.b07-1.amzn2.0.1.x86_64
+				export PATH=$PATH:$JAVA_HOME/bin
+				java -version
+				./gradlew -b build.gradle clean build
+			'''
 			}
     	}
     	stage('parallel stages') {
